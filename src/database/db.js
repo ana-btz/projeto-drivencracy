@@ -8,7 +8,7 @@ try {
   await mongoClient.connect();
   console.log("Conectado com Mongodb");
 } catch (error) {
-  console.log(error);
+  console.log(error.message);
 }
 export const db = mongoClient.db();
 
