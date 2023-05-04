@@ -10,8 +10,8 @@ try {
 } catch (error) {
   console.log(error.message);
 }
-export const db = mongoClient.db();
+const db = mongoClient.db();
 
-// export const pollsCollection = db.collection("polls");
-// export const choicesCollection = db.collection("choices");
-// export const votesCollection = db.collection("votes");
+export const pollsCollection = db.collection("polls");
+export const choicesCollection = db.collection("choices");
+export const votesCollection = db.collection("votes");
