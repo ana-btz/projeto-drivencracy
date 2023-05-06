@@ -20,3 +20,12 @@ export async function createPoll(req, res) {
     res.status(500).send(error.message);
   }
 }
+
+export async function getAllPolls(req, res) {
+  try {
+    const polls = await pollsCollection.find().toArray();
+    res.send(polls);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+}
