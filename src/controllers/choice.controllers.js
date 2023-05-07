@@ -26,11 +26,12 @@ export async function createPollChoice(req, res) {
 
 export async function getPollChoices(req, res) {
   const { id } = req.params;
-  console.log(id);
 
   try {
     const pollChoices = await choicesCollection.find({ pollId: id }).toArray();
-    if (!pollChoices) return res.sendStatus(404);
+    if (pollChoices.length === 0) return res.sendStatus(404);
+
+    console.log(pollChoices);
 
     res.status(200).send(pollChoices);
   } catch (error) {
