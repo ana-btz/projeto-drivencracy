@@ -23,7 +23,7 @@ export async function submitVote(req, res) {
 
     await votesCollection.insertOne({
       createdAt: now.format("YYYY-MM-DD HH:mm"),
-      choiceId: id,
+      choiceId: new ObjectId(id),
     });
 
     res.sendStatus(201);
